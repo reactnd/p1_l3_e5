@@ -7,11 +7,15 @@ class App extends Component {
     query: ''
   }
 
-  updateQuery = (query) => {
-    this.setState(() => ({
-      query: query.trim()
-    }))
-  } 
+  // updateQuery = (query) => {
+  //   this.setState(() => ({
+  //     query: query.trim()
+  //   }))
+  // } 
+
+  handleChange = event => {
+    this.setState({query: event.target.value})
+  }
 
   render() {
     const { query }  = this.state
@@ -27,7 +31,8 @@ class App extends Component {
           type="text"
           placeholder="Say Something"
           value={query}
-          onChange={(event) => this.updateQuery(event.target.value)}
+          // onChange={(event) => this.updateQuery(event.target.value)}
+          onChange={this.handleChange}
           />
           {query.length > 0 && (
             <div>
